@@ -1,4 +1,4 @@
-"update.statnet" <- function(object, ..., 
+"install.statnet" <- function(object, ..., 
             contriburl = "http://statnetproject.org",
             repos = getOption("repos"), type = getOption("pkgType"))
 {
@@ -77,8 +77,6 @@
   old.cran.pkgs <- old.packages(lib.loc=.libPaths()[1])[,1]
   update.cran.pkgs <- c(new.cran.pkgs, old.cran.pkgs)
 #
-  answer<-substr(readline(paste(" Install and update all packages (y)\n   or select individual packages (n)?  ", sep="")),1,1)
-  if (answer == "y" | answer == "Y"){
    statnet.install(object, cran.Base, ask=FALSE, type="base")
    statnet.install(object, csde.Base, ask=FALSE, type="base",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
@@ -88,17 +86,6 @@
    statnet.install(object, cran.Optional, ask=FALSE, type="optional")
    statnet.install(object, csde.Optional, ask=FALSE, type="optional",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
-  }else{
-   statnet.install(object, cran.Base, ask=FALSE, type="base")
-   statnet.install(object, csde.Base, ask=FALSE, type="base",
-                   update.pkgs=update.csde.pkgs, contriburl=contriburl)
-   statnet.install(object, cran.Recommended, ask=TRUE, type="recommended")
-   statnet.install(object, csde.Recommended, ask=TRUE, type="recommended",
-                   update.pkgs=update.csde.pkgs, contriburl=contriburl)
-   statnet.install(object, cran.Optional, ask=TRUE, type="optional")
-   statnet.install(object, csde.Optional, ask=TRUE, type="optional",
-                   update.pkgs=update.csde.pkgs, contriburl=contriburl)
-  }
 #
 # check required packages for latentnet
 #

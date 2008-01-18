@@ -1,14 +1,16 @@
-\name{update.statnet}
-\alias{update.statnet}
-\title{Updates or Installs the Component Packages of statnet}
+\name{install.statnet}
+\alias{install.statnet}
+\title{Installs all the Component Packages of statnet}
 \usage{
-update.statnet(object, \dots,
+install.statnet(object, \dots,
             contriburl = "http://statnetproject.org",
             repos = getOption("repos"), type = getOption("pkgType"))
 }
 \description{
- Updates or, if necessary, installs the component packages of 
-\pkg{statnet}. Many of the packages are on \code{CRAN}. The rest are on
+ Installs all the component packages of 
+\pkg{statnet}. If the latest version of a component package is already
+installed it if not updatd. 
+Many of the packages are on \code{CRAN}. The rest are on
  the \pkg{statnet} webpage (\url{http://statnetproject.org}).
  This command can be used immediately after installing \pkg{statnet}
  from \code{CRAN} to install the component packages.
