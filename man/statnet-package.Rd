@@ -236,6 +236,11 @@ Hunter DR, Handcock MS, Butts CT, Goodreau SM, Morris M (2008{{b}}).
  {Journal of Statistical Software}, \textbf{24}(3).
  \url{http://www.jstatsoft.org/v24/i03/}.
 
+Krivitsky PN, Handcock MS (2008). 
+Fitting Latent Cluster Models for Social Networks with \pkg{latentnet}.
+ {Journal of Statistical Software}, \textbf{24}(5).
+ \url{http://www.jstatsoft.org/v24/i05/}.
+
 Krivitsky PN, Handcock MS (2007).
  {\pkg{latentnet}: Latent position and cluster models for
   statistical networks}.

@@ -12,28 +12,35 @@
                       )){
      contriburl <- "http://csde.washington.edu/statnet"
   }
-  cat(paste("Initializing...\n",sep=""))
+  cat(paste("Collecting information necessary for the install...\n",sep=""))
   cran.Base <- c("network", "coda", "statnet","ergm")
   csde.Base <- c()
   cran.Recommended <- c("sna", "latentnet")
   csde.Recommended <- c()
 # cran.Optional <- c("netdata")
   cran.Optional <- c("degreenet","networksis")
-  csde.Optional <- c("netperm")
-  cran.Base.latentnet <- c("abind", "tools", "mclust", "snowFT",
-                           "akima",  "shapes", "KernSmooth")
+  csde.Optional <- c("netperm","rSoNIA")
+  cran.Base.latentnet <- c("abind", "rgl",  "shapes", "scatterplot3d")
 #
   if(missing(object)){
     object <- c(cran.Base, csde.Base, cran.Recommended,
                 csde.Recommended, cran.Optional, csde.Optional)
   }
-  inuse <- match(paste("package:","statnet",sep=""), search())
-  if(!inherits(try(detach(pos=inuse),silent=TRUE), "try-error")){
-    cat(paste("Detaching package '", "statnet","'.\n",sep=""))
-  }
 #
 # local install functions
 #
+  really.detach <- function(package){
+   inuse <- match(paste("package:",pkg,sep=""), search())
+   if(!is.na(inuse) && !inherits(try(detach(pos=inuse),silent=TRUE), "try-error")){
+     cat(paste("Detaching package '", pkg,"'.\n",sep=""))
+     inuse <-  grep(paste("/",package,"$",sep=""),searchpaths())
+     if(length(inuse)>0){
+      inuse <- searchpaths()[inuse]
+      library.dynam.unload(paste(package,".so",sep=""),inuse)
+     }
+   }
+  invisible()
+  }
   statnet.install <- function(object, csde, contriburl=cran.contriburl,
                               ask=FALSE, type="recommended",
                               update.pkgs=update.cran.pkgs){
@@ -68,6 +75,8 @@
     }
   invisible()
   }
+# Detach the packages to avoid conflicts
+  for(pkg in object){ really.detach(pkg) }
 # CSDE
   new.csde.pkgs <- new.packages(lib.loc=.libPaths()[1],contriburl=contriburl)
   old.csde.pkgs <- old.packages(lib.loc=.libPaths()[1],contriburl=contriburl)[,1]
@@ -78,7 +87,7 @@
   update.cran.pkgs <- c(new.cran.pkgs, old.cran.pkgs)
 #
   answer<-substr(readline(paste(" Install and update all packages (y)\n   or select individual packages (n)?  ", sep="")),1,1)
-  if (answer == "y" | answer == "Y"){
+  if (answer == "y" | answer == "Y" | answer == ""){
    statnet.install(object, cran.Base, ask=FALSE, type="base")
    statnet.install(object, csde.Base, ask=FALSE, type="base",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
@@ -86,6 +95,11 @@
    statnet.install(object, csde.Recommended, ask=FALSE, type="recommended",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
    statnet.install(object, cran.Optional, ask=FALSE, type="optional")
+   if( 'rSoNIA' %in% csde.Optional &&  
+      !('dynamicnetwork' %in% (installed.packages())[,"Package"])){
+      cat("\n\n'rSoNIA' requires 'dynamicnetwork' to be installed manually before it can be installed. 'rSoNIA' has not been installed.\n Instructions for downloading and installing a working system are located at 'http://csde.washington.edu/~skyebend/installDynamicnetwork.html'\n\n\n")
+      csde.Optional <- csde.Optional[csde.Optional != "rSoNIA"]
+   }
    statnet.install(object, csde.Optional, ask=FALSE, type="optional",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
   }else{
@@ -96,16 +110,21 @@
    statnet.install(object, csde.Recommended, ask=TRUE, type="recommended",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
    statnet.install(object, cran.Optional, ask=TRUE, type="optional")
+   if( 'rSoNIA' %in% csde.Optional &&  
+      !('dynamicnetwork' %in% (installed.packages())[,"Package"])){
+      cat("\n\n'rSoNIA' requires 'dynamicnetwork' to be installed manually before it can be installed. 'rSoNIA' has not been installed.\n Instructions for downloading and installing a working system are located at 'http://csde.washington.edu/~skyebend/installDynamicnetwork.html'\n\n\n")
+      csde.Optional <- csde.Optional[csde.Optional != "rSoNIA"]
+   }
    statnet.install(object, csde.Optional, ask=TRUE, type="optional",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
   }
 #
 # check required packages for latentnet
 #
-  inst.pkgs <- as.vector(installed.packages()[,1])
-  if("latentnet" %in% inst.pkgs){
-    statnet.install(cran.Base.latentnet, cran.Base.latentnet, ask=FALSE, type="base")
-  }
+# inst.pkgs <- as.vector(installed.packages()[,1])
+# if("latentnet" %in% inst.pkgs){
+#   statnet.install(cran.Base.latentnet, cran.Base.latentnet, ask=FALSE, type="base")
+# }
 #
   cat(paste("=========================================\n",sep=""))
   cat(paste("'statnet' is now up-to-date.\n",sep=""))

@@ -12,14 +12,14 @@
                       )){
      contriburl <- "http://csde.washington.edu/statnet"
   }
-  cat(paste("Initializing...\n",sep=""))
+  cat(paste("Collecting information necessary for the install...\n",sep=""))
   cran.Base <- c("network", "coda", "statnet","ergm")
   csde.Base <- c()
   cran.Recommended <- c("sna", "latentnet")
   csde.Recommended <- c()
 # cran.Optional <- c("netdata")
   cran.Optional <- c("degreenet","networksis")
-  csde.Optional <- c("netperm")
+  csde.Optional <- c("netperm","rSoNIA")
   cran.Base.latentnet <- c("abind", "tools", "mclust", "snowFT",
                            "akima",  "shapes", "KernSmooth")
 #
@@ -84,6 +84,11 @@
    statnet.install(object, csde.Recommended, ask=FALSE, type="recommended",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
    statnet.install(object, cran.Optional, ask=FALSE, type="optional")
+   if( 'rSoNIA' %in% csde.Optional &&  
+      !('dynamicnetwork' %in% (installed.packages())[,"Package"])){
+      cat("\n\n'rSoNIA' requires 'dynamicnetwork' to be installed manually before it can be installed. 'rSoNIA' has not been installed.\n Instructions for downloading and installing a working system are located at 'http://csde.washington.edu/~skyebend/installDynamicnetwork.html'\n\n\n")
+      csde.Optional <- csde.Optional[csde.Optional != "rSoNIA"]
+   }
    statnet.install(object, csde.Optional, ask=FALSE, type="optional",
                    update.pkgs=update.csde.pkgs, contriburl=contriburl)
 #
