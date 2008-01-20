@@ -52,7 +52,7 @@
        cat(paste("Attempting to update package '", pkg,"'.\n",sep=""))
        inuse <- match(paste("package:",pkg,sep=""), search())
        if(!is.na(inuse)){
-         if(!inherits(try(detach(pos=inuse),silent=TRUE), "try-error")){
+         if(!inherits(try(detach(pos=inuse, unload=TRUE),silent=TRUE), "try-error")){
            cat(paste("Detaching package '", pkg,"'.\n",sep=""))}
        }
        if(ask){
