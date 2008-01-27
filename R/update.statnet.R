@@ -1,3 +1,20 @@
+#  File R/update.statnet.R
+#  Part of the "statnet" package, http://statnetproject.org
+#
+#  This software is distributed under the GPL-3 license.  It is free,
+#  open source, and has the attribution requirements (GPL Section 7) in
+#    http://statnetproject.org/attribution
+#
+# Copyright 2003 Mark S. Handcock, University of Washington
+#                David R. Hunter, Penn State University
+#                Carter T. Butts, University of California - Irvine
+#                Martina Morris, University of Washington
+# Copyright 2007 statnet Development Team
+#
+# We have invested a lot of time and effort in creating 'statnet',
+# for use by other researchers. We require that the attributions
+# are retained with each function.
+######################################################################
 "update.statnet" <- function(object, ..., 
             contriburl = "http://statnetproject.org",
             repos = getOption("repos"), type = getOption("pkgType"))
@@ -13,14 +30,14 @@
      contriburl <- "http://csde.washington.edu/statnet"
   }
   cat(paste("Collecting information necessary for the install...\n",sep=""))
-  cran.Base <- c("network", "coda", "statnet","ergm")
+  cran.Base <- c("network", "latentnet", "sna", "statnet", "ergm", "degreenet")
   csde.Base <- c()
-  cran.Recommended <- c("sna", "latentnet")
+  cran.Recommended <- c("coda")
   csde.Recommended <- c()
 # cran.Optional <- c("netdata")
-  cran.Optional <- c("degreenet","networksis")
+  cran.Optional <- c("networksis")
   csde.Optional <- c("netperm","rSoNIA")
-  cran.Base.latentnet <- c("abind", "rgl",  "shapes", "scatterplot3d")
+  cran.Base.latentnet <- c("abind", "shapes")
 #
   if(missing(object)){
     object <- c(cran.Base, csde.Base, cran.Recommended,
@@ -31,7 +48,7 @@
 #
   really.detach <- function(package){
    inuse <- match(paste("package:",pkg,sep=""), search())
-   if(!is.na(inuse) && !inherits(try(detach(pos=inuse),silent=TRUE), "try-error")){
+   if(!is.na(inuse) && !inherits(try(detach(pos=inuse, unload=TRUE),silent=TRUE), "try-error")){
      cat(paste("Detaching package '", pkg,"'.\n",sep=""))
      inuse <-  grep(paste("/",package,"$",sep=""),searchpaths())
      if(length(inuse)>0){
@@ -121,10 +138,10 @@
 #
 # check required packages for latentnet
 #
-# inst.pkgs <- as.vector(installed.packages()[,1])
-# if("latentnet" %in% inst.pkgs){
-#   statnet.install(cran.Base.latentnet, cran.Base.latentnet, ask=FALSE, type="base")
-# }
+  inst.pkgs <- as.vector(installed.packages()[,1])
+  if("latentnet" %in% inst.pkgs){
+    statnet.install(cran.Base.latentnet, cran.Base.latentnet, ask=FALSE, type="base")
+  }
 #
   cat(paste("=========================================\n",sep=""))
   cat(paste("'statnet' is now up-to-date.\n",sep=""))
