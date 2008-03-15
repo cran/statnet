@@ -4,7 +4,8 @@
 \usage{
 update.statnet(object, \dots,
             contriburl = "http://statnetproject.org",
-            repos = getOption("repos"), type = getOption("pkgType"))
+            repos = getOption("repos"), type = getOption("pkgType"),
+            ask=TRUE)
 }
 \description{
  Updates or, if necessary, installs the component packages of 
@@ -43,20 +44,17 @@ By default it updates or installs all the component packages of \pkg{statnet}.}
     Can be \code{NULL} to install from local \file{.zip} files.
 #endif
   }
-% \item{ask}{logical indicating whether to ask user before packages
-%   are actually downloaded and installed, or the character string
-%   \code{"graphics"}, which brings up a widget to allow the user to
-%   (de-)select from the list of packages which could be updated.  The
-%   latter only works on systems with a GUI version of
-%   \code{\link{select.list}}, and is otherwise equivalent to \code{ask
-%     = TRUE}.
-% }
   \item{type}{character, indicating the type of \pkg{statnet}
     package to download and install.
     Possible values are \code{"base"} (for packages essential to \pkg{statnet}),
     \code{"recommended"} (for packages needed for a significant part of
      \pkg{statnet} functionality) and \code{"optional"}
     (for packages with specialized \pkg{statnet} functionality).
+  }
+  \item{ask}{logical indicating whether to ask user which packages
+    ins \pkg{statnet} to update or install.
+    The default is \code{ask = TRUE}. If \code{ask = FALSE} then all packages
+    are updated and/or installed.
   }
 }
 \details{
@@ -80,7 +78,9 @@ By default it updates or installs all the component packages of \pkg{statnet}.}
 }
 \section{Warning}{
   This function may fail in rare circumstances. If so, send email to
-  \code{handcock@u.washington.edu} who will fix it.
+  the \pkg{statnet} Users Group at 
+  \code{statnet_help@u.washington.edu}. See the link on
+  \url{http://statnetproject.org} for how to join it.
 }
 \seealso{
   \code{\link{install.packages}}.
@@ -91,4 +91,3 @@ update.statnet()
 }
 }
 \keyword{utilities}
-
