@@ -1,8 +1,24 @@
 cat("'statnet' is a suite of packages for the statistical modeling of network data.\n")
-cat('Please read the license using license.statnet()\n')
+cat('Please read the license using license.statnet()\n\n')
+cat("If you are using 'statnet' for research that will be published,\n")
+cat("we request that you acknowledge this with the following citation:\n\n")
+cat("  Mark S. Handcock, David R. Hunter, Carter T. Butts, Steven M. Goodreau,\n")
+cat("  and Martina Morris (2003) statnet: Software Tools for the Statistical\n")
+cat("  Modeling of Network Data. Version 2.0. Project home page at http://statnetproject.org,\n")
+cat("  URL http://CRAN.R-project.org/package=statnet.\n\n")
+cat("A BibTeX entry for LaTeX users is\n\n")
+cat("  @Manual{,\n")
+cat("    title = {statnet: Software Tools for the Statistical Modeling of Network Data},\n")
+cat("    author = {Mark S. Handcock and David R. Hunter and Carter T. Butts and Steven M. Goodreau and Martina Morris},\n")
+cat("    year = {2003},\n")
+cat("    note = {Version 2.0. Project home page at \url{http://statnetproject.org}},\n")
+cat("    address = {Seattle, WA},\n")
+cat("    url = {http://CRAN.R-project.org/package=statnet},\n")
+cat("  }\n")
+cat('To cite an individual package use citation("<name>") ,where <name> is the
+package name.\n')
 
-citHeader("If you are using 'statnet' for research that will be published, we
-request that you acknowledge this with the following citation:")
+citHeader("To cite the individual package please use citation("<name>"), where <name> is the package name.")
 
 citEntry(entry="Manual",
          title = "statnet: Software Tools for the Statistical Modeling of Network Data",
