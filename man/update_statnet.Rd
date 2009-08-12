@@ -1,16 +1,17 @@
-\name{update.statnet}
+\name{update_statnet}
+\alias{update_statnet}
 \alias{update.statnet}
 \title{Updates or Installs the Component Packages of statnet}
 \usage{
-update.statnet(object, \dots,
-            contriburl = "http://statnetproject.org",
+update_statnet(object, \dots,
+            contriburl = "http://statnet.org",
             repos = getOption("repos"), type = getOption("pkgType"),
             ask=TRUE)
 }
 \description{
  Updates or, if necessary, installs the component packages of 
 \pkg{statnet}. Many of the packages are on \code{CRAN}. The rest are on
- the \pkg{statnet} webpage (\url{http://statnetproject.org}).
+ the \pkg{statnet} webpage (\url{http://statnet.org}).
  This command can be used immediately after installing \pkg{statnet}
  from \code{CRAN} to install the component packages.
 It also can be used at any subsequent point to update the packages to their
@@ -23,7 +24,7 @@ By default it updates or installs all the component packages of \pkg{statnet}.}
   \item{\dots}{Additional arguments (currently none).}
   \item{contriburl}{URL of the contrib section of the
     repositories. By default this is the URL of the \pkg{statnet} webpage
-    (\url{http://statnetproject.org}). Overrides argument \code{repos}.
+    (\url{http://statnet.org}). Overrides argument \code{repos}.
 #ifdef unix
     Can be \code{NULL} to install from local \file{.tar.gz} files.
 #endif
@@ -32,7 +33,7 @@ By default it updates or installs all the component packages of \pkg{statnet}.}
 #endif
   }
 % \item{contriburl}{URL of the \pkg{statnet} webpage
-%       (\url{http://statnetproject.org})}
+%       (\url{http://statnet.org})}
   \item{repos}{character vector, the base URL(s) of the repositories
     to use, i.e., the URL of the CRAN master such as
     \code{"http://cran.r-project.org"} or its Statlib mirror,
@@ -67,27 +68,27 @@ By default it updates or installs all the component packages of \pkg{statnet}.}
   (the first directory in \code{.libPaths()})
 % \code{lib.loc}
   is created and compared with those available at the \pkg{statnet}
-  repositories (\code{CRAN} and \url{http://statnetproject.org}).
+  repositories (\code{CRAN} and \url{http://statnet.org}).
   If \code{ask = TRUE} (the default for "recommended" and "optional", 
   but not for "base") packages with a newer version are
   reported and for each one the user can specify if it should be
   updated.
 }
 \value{
-  \code{\link{update.statnet}} has no return value.
+  \code{\link{update_statnet}} has no return value.
 }
 \section{Warning}{
   This function may fail in rare circumstances. If so, send email to
   the \pkg{statnet} Users Group at 
   \code{statnet_help@u.washington.edu}. See the link on
-  \url{http://statnetproject.org} for how to join it.
+  \url{http://statnet.org} for how to join it.
 }
 \seealso{
   \code{\link{install.packages}}.
 }
 \examples{
 \dontrun{
-update.statnet()
+update_statnet()
 }
 }
 \keyword{utilities}
