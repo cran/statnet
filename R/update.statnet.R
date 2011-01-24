@@ -1,19 +1,11 @@
-#  File R/update.statnet.R
-#  Part of the "statnet" package, http://statnet.org
+#  File ergm/R/update.statnet.R
+#  Part of the statnet package, http://statnetproject.org
 #
 #  This software is distributed under the GPL-3 license.  It is free,
 #  open source, and has the attribution requirements (GPL Section 7) in
-#    http://statnet.org/attribution
+#    http://statnetproject.org/attribution
 #
-# Copyright 2003 Mark S. Handcock, University of Washington
-#                David R. Hunter, Penn State University
-#                Carter T. Butts, University of California - Irvine
-#                Martina Morris, University of Washington
-# Copyright 2007 statnet Development Team
-#
-# We have invested a lot of time and effort in creating 'statnet',
-# for use by other researchers. We require that the attributions
-# are retained with each function.
+#  Copyright 2011 the statnet development team
 ######################################################################
 "update_statnet" <- function(object, ..., 
             contriburl = "http://statnet.org",
@@ -31,7 +23,7 @@
      contriburl <- "http://csde.washington.edu/statnet"
   }
   cat(paste("Collecting information necessary for the install...\n",sep=""))
-  cran.Base <- c("network", "latentnet", "sna", "statnet", "ergm", "degreenet")
+  cran.Base <- c("statnet","latentnet","ergm", "sna", "network", "degreenet")
   csde.Base <- c()
   cran.Recommended <- c("coda")
   csde.Recommended <- c()
@@ -52,17 +44,17 @@
     inuse <- match(paste("package:",pkg,sep=""), search())
     if(!is.na(inuse)){
      silentwarnings <- capture.output(
-      try(detach(pos=inuse, unload=TRUE),silent=TRUE)
+      try(detach(pos=inuse, unload=TRUE,force=TRUE),silent=TRUE)
                                      )
      if(!inherits(silentwarnings, "try-error")){
       if(verbose){
        cat(paste("Detaching package '", pkg,"'.\n",sep=""))
       }
-      inuse <-  grep(paste("/",pkg,"$",sep=""),searchpaths())
-      if(length(inuse)>0){
-       inuse <- searchpaths()[inuse]
-       library.dynam.unload(paste(pkg,".so",sep=""),inuse)
-      }
+#     inuse <-  grep(paste("/",pkg,"$",sep=""),searchpaths())
+#     if(length(inuse)>0){
+#      inuse <- searchpaths()[inuse]
+#      library.dynam.unload(chname=pkg,libpath=inuse)
+#     }
     }
    }
   }
