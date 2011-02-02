@@ -1,4 +1,4 @@
-#  File ergm/R/zzz.R
+#  File statnet/R/zzz.R
 #  Part of the statnet package, http://statnetproject.org
 #
 #  This software is distributed under the GPL-3 license.  It is free,

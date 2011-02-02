@@ -1,4 +1,4 @@
-%  File ergm/man/update_statnet.Rd
+%  File statnet/man/update_statnet.Rd
 %  Part of the statnet package, http://statnetproject.org
 %
 %  This software is distributed under the GPL-3 license.  It is free,

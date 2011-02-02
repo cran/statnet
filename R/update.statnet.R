@@ -1,4 +1,4 @@
-#  File ergm/R/update.statnet.R
+#  File statnet/R/update.statnet.R
 #  Part of the statnet package, http://statnetproject.org
 #
 #  This software is distributed under the GPL-3 license.  It is free,
