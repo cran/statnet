@@ -1,0 +1,8 @@
+49cf62c4fc700c733798db830b18a516 *DESCRIPTION
+e6ff49af050564148b6e8684346abaee *LICENSE
+91c2bc4ac9e7b1c302ba8d805cd58a33 *NAMESPACE
+9ed83c444d332521eaee3b01336fedde *R/onAttach.R
+ba9b0343735eb49210434c113acc411d *R/update_statnet.R
+7a15ebbfedc980b1412b8827f887823a *inst/CITATION
+65e5061efe935a723549fa1838ed4fe2 *man/statnet-package.Rd
+e7d05e324a5a661b691f19abfac2014a *man/update_statnet.Rd
