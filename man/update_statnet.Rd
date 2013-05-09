@@ -1,45 +1,40 @@
 \name{update_statnet}
 \alias{update_statnet}
-\title{Updates the Component Packages of statnet}
+\title{Update the Component Packages of the Statnet Suite}
+\description{A wrapper around \code{\link{update.packages}} to update
+  the component packages of Statnet Suite to their latest versions.
+}
 \usage{
-update_statnet(\dots)
+update_statnet(\dots, ask = FALSE, checkBuilt = TRUE, addURLs = character())
 }
 \arguments{
+
+  \item{ask, checkBuilt}{Arguments to \code{\link{update.packages}}
+    documentation. The defaults are different from those of that
+    function.}
+    
+    \item{addURLs}{Optional repository URLs in addition to CRAN, such as
+      \url{http://www.statnet.csde.washington.edu/preview}. Defaults to
+      none.}
+
   \item{\dots}{
-    Arguments passed to \code{\link{update.packages}}
+    Additional arguments to be passed to \code{\link{update.packages}}.
   }
-%  \item{askAboutSuggests}{
-%    Logical:  If TRUE, go through the list of packages on the
-%    \code{Suggests} line of the \code{statnet/DESCRIPTION} and
-%    ask whether to update each one.  If FALSE, ignore the
-%    \code{Suggests} line altogether.
-%  }
-}
-\description{
- Updates or, if necessary, installs the component packages of 
-\pkg{statnet} that are on \code{CRAN}. This function is
-essentially an alias for \code{\link{update.packages}},
-and any arguments passed to \code{update_statnet} 
-(except \code{oldPkgs} and \code{ask}) are 
-passed directly to \code{\link{update.packages}}.  
-The function will automatically update those packages listed in the
-\code{Depends} and \code{Suggests} lines of the \code{statnet/DESCRIPTION} file.
 }
 \value{
   \code{update_statnet} returns NULL invisibly.  
 }
-\details{
-  The function tells which packages are being checked.  In addition,
-  \code{\link{update.packages}} provides very informative feedback
-  whenever a package is out of date.
-}
 \seealso{
-  \code{\link{update.packages}}, \code{\link{install.packages}}
+  \code{\link{setRepositories}}, \code{\link{update.packages}}, \code{\link{install.packages}}
 }
 \examples{
 \dontrun{
-# Update from statnet.org
-update_statnet(repos="http://csde.washington.edu/statnet")
+# Update from CRAN
+update_statnet()
+
+# Update from statnet.org's preview release, taking packages from CRAN
+# as needed
+update_statnet(addURLs="http://statnet.csde.washington.edu/preview")
 }
 }
 \keyword{utilities}
