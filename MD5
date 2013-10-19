@@ -1,10 +1,8 @@
-a1f52c139a4eaae057aa7dd0ccaad2ac *DESCRIPTION
-7d5d27f14d7d922a1e80e13f1ca73d79 *DESCRIPTION.orig
-59481ce22575226b508ec0b4903cfd6f *DESCRIPTION.rej
+80f0e879f2f5438751314b6f41c79f5f *DESCRIPTION
 170ac9f7771a1f2bef308ee1f172858b *LICENSE
 91c2bc4ac9e7b1c302ba8d805cd58a33 *NAMESPACE
 b4477cb780104ce8dbc9f23db4d13a3e *R/onAttach.R
 823d37dcf8f5f1d89c1e43d31e60f0ff *R/update_statnet.R
 6317d6bf5fe07a2558474430fe13942d *inst/CITATION
 bf89ec5d5ad18a7867e36cdca0e5f7c0 *man/statnet-package.Rd
-3da80b4ffd2caf780798c5c377e4f976 *man/update_statnet.Rd
+79981808fcd8f2f9be51d5f5050aa0dd *man/update_statnet.Rd

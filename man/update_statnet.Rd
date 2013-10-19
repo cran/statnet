@@ -21,6 +21,11 @@ update_statnet(\dots, ask = FALSE, checkBuilt = TRUE, addURLs = character())
     Additional arguments to be passed to \code{\link{update.packages}}.
   }
 }
+\details{
+  
+  Updates the list component packages of Statnet Suite, using \code{\link{setRepositories}} and \code{\link{update.packages}}.
+  
+}
 \value{
   \code{update_statnet} returns NULL invisibly.  
 }
