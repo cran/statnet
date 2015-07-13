@@ -86,14 +86,10 @@ and robustness.
     to store information about about evolution of a network over time,
     defining a \code{\link[networkDynamic]{networkDynamic}} object
     class.
-  }
+    
+    \item \pkg{ndtv}: (Network Dynamic Temporal Visualization): Exports dynamic network data from networkDynamic objects as animated movies or other representations of relational structure and node attributes that change over time.
   
-  In addition, the following packages are available from the author:
-  
-  \itemize{ \item \pkg{rSonia}: provides a set of methods to facilitate
-    exporting data and parameter settings and launching SoNIA (Social
-    Network Image Animator). SoNIA facilitates interactive browsing of
-    dynamic network data and exporting animations as a QuickTime movies.
+    \item \pkg{EpiModel}: Tools for building, solving, and plotting mathematical models of infectious disease, including stochastic models of disease on dynamic networks with demographic processes.
     }
     
     \pkg{statnet} is a metapackage, depending on all of the above
@@ -145,22 +141,20 @@ Besag, J., 1974, Spatial interaction and the statistical analysis
 of lattice systems (with discussion), Journal of the Royal Statistical
 Society, B, 36, 192-236.
 
-Butts CT (2006).
- {\pkg{netperm}: Permutation Models for Relational Data}.
- Version 0.2, \url{http://erzuli.ss.uci.edu/R.stuff}.
+Carter T. Butts (2014). 
+  {\pkg{sna}: Tools for Social Network Analysis. R package}
+  version 2.3-2. \url{http://CRAN.R-project.org/package=sna}
 
-Butts CT (2007).
- {\pkg{sna}: Tools for Social Network Analysis}.
- Version 1.5, \url{http://erzuli.ss.uci.edu/R.stuff}.
+Butts C (2015). 
+  {\pkg{network}: Classes for Relational Data}. 
+  The Statnet Project (\url{http://www.statnet.org}). R package version 1.12.0,
+  \url{CRAN.R-project.org/package=network}.
 
 Butts CT (2008).
  {\pkg{network}: {A} Package for Managing Relational Data in \R.}
  {Journal of Statistical Software}, {24} (2).
  \url{http://www.jstatsoft.org/v24/i02/}.
 
-Butts CT, with help~from David~Hunter, Handcock MS (2007).
- {\pkg{network}: Classes for Relational Data}.
- Version 1.3, \url{http://erzuli.ss.uci.edu/R.stuff}.
 
 Frank, O., and Strauss, D.(1986). Markov graphs. Journal of the American
 Statistical Association, 81, 832-842. 
